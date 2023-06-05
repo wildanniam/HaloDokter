@@ -2,16 +2,15 @@ package pasien
 
 import (
 	"fmt"
-	common "projek/common"
-	pasienStruct "projek/features/pasien/structs"
+	postStruct "projek/features/post/structs"
 )
 
-func repChat(tPost *pasienStruct.TabPost) {
+func RepChat(tPost *postStruct.TabPost) {
 	//Pengguna menginputkan balasan pada postingan
 	var noPost int
 	fmt.Println("Pilih postingan yang ingin dibalas: ")
 	fmt.Scan(&noPost)
 	fmt.Println("Balasan anda: ")
-	common.InputMultipleString(&tPost.ArrPost[noPost+1].TxtReply)
+	// common.InputMultipleString(&tPost.ArrPost[noPost-1].ArrReply[tPost.ArrPost[noPost-1].ArrReply])
 	fmt.Println("Balasan anda telah diposting!")
 }

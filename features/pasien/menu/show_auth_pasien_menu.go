@@ -2,7 +2,7 @@ package pasien
 
 import "fmt"
 
-func ShowAuthMenu() {
+func ShowAuthPasienMenu() {
 	fmt.Println("==============================================")
 	fmt.Println("=    Untuk mengakses semua fitur aplikasi    =")
 	fmt.Println("=    Anda diwajibkan login atau registrasi   =")

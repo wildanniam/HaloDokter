@@ -5,7 +5,7 @@ import (
 	pasienStruct "projek/features/pasien/structs"
 )
 
-func LoginPasien(tPasien *pasienStruct.TabPasien) {
+func LoginPasien(tPasien *pasienStruct.TabPasien) bool {
 	var username, password string
 	var found bool
 	var i int
@@ -19,12 +19,7 @@ func LoginPasien(tPasien *pasienStruct.TabPasien) {
 	for i < tPasien.N && !found {
 		found = tPasien.ArrPasien[i].Username == username && tPasien.ArrPasien[i].Password == password
 		i = i + 1
-
 	}
 
-	if found {
-		fmt.Println("Selamat anda berhasil login")
-	} else {
-		fmt.Println("Username atau password yang anda masukkan salah")
-	}
+	return found
 }

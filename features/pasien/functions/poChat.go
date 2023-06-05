@@ -3,12 +3,12 @@ package pasien
 import (
 	"fmt"
 	common "projek/common"
-	pasienStruct "projek/features/pasien/structs"
+	postStruct "projek/features/post/structs"
 )
 
-func poChat(tPost *pasienStruct.TabPost) {
+func PoChat(tPost *postStruct.TabPost) {
 	//Pengguna menginputkan postingan kedalam aplikasi
-	if tPost.N < pasienStruct.NMAX {
+	if tPost.N < postStruct.NMAX {
 		fmt.Print("Posting pertanyaan anda: ")
 		common.InputMultipleString(&tPost.ArrPost[tPost.N].TxtAddPost)
 		fmt.Print("Tag: ")

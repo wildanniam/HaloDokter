@@ -2,9 +2,9 @@ package pasien
 
 import "fmt"
 
-func ShowPasienMenu() {
+func ShowHomePasienMenu() {
 	fmt.Println("===================================================")
-	fmt.Println("=             Halaman Konsultasi                   =")
+	fmt.Println("=                 Halaman Konsultasi               =")
 	fmt.Println("=    Silahkan berkonsultasi terkait keluhan anda   =")
 	fmt.Println("====================================================")
 	fmt.Println("=                   Menu                           =")
