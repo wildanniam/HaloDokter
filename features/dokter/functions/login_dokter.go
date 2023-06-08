@@ -5,7 +5,7 @@ import (
 	dokterStruct "projek/features/dokter/structs"
 )
 
-func loginDokter(tDokter *dokterStruct.TabDokter) {
+func LoginDokter(tDokter *dokterStruct.TabDokter) {
 	var username, password string
 	var found bool
 	var i int
@@ -26,5 +26,6 @@ func loginDokter(tDokter *dokterStruct.TabDokter) {
 		fmt.Println("Selamat anda berhasil login")
 	} else {
 		fmt.Println("Username atau password yang anda masukkan salah")
+		LoginDokter(tDokter)
 	}
 }

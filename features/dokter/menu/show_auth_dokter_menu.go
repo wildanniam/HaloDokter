@@ -2,7 +2,7 @@ package dokter
 
 import "fmt"
 
-func ShowAuthMenu() {
+func ShowAuthDokterMenu() {
 	fmt.Println("==============================================")
 	fmt.Println("=    Untuk mengakses semua fitur aplikasi    =")
 	fmt.Println("=    Anda diwajibkan login atau registrasi   =")

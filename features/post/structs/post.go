@@ -9,7 +9,7 @@ const NMAX int = 20
 type Post struct {
 	ArrReply            [NMAX]string
 	TxtAddPost, TagPost string
-	NoPost              int
+	ID                  string
 	User                pasienStruct.Pasien
 }
 

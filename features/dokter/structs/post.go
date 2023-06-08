@@ -3,9 +3,9 @@ package dokter
 const NMAX int = 20
 
 type Post struct {
-	ArrReply           [NMAX]string
-	TxtAddPos, TagPost string
-	NoPost             int
+	ArrReply            [NMAX]string
+	TxtAddPost, TagPost string
+	NoPost              int
 }
 
 type TabPost struct {

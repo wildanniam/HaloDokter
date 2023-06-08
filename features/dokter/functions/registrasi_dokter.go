@@ -6,7 +6,7 @@ import (
 	dokterStruct "projek/features/dokter/structs"
 )
 
-func regisDokter(tDokter *dokterStruct.TabDokter) {
+func RegisDokter(tDokter *dokterStruct.TabDokter) {
 	fmt.Print("Masukkan nama : ")
 	common.InputMultipleString(&tDokter.ArrDokter[tDokter.N].Nama)
 	fmt.Print("Spesialis anda? : ")

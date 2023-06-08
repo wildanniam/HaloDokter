@@ -3,7 +3,7 @@ package pasien
 import "fmt"
 
 func ShowHomePasienMenu() {
-	fmt.Println("===================================================")
+	fmt.Println("====================================================")
 	fmt.Println("=                 Halaman Konsultasi               =")
 	fmt.Println("=    Silahkan berkonsultasi terkait keluhan anda   =")
 	fmt.Println("====================================================")

@@ -1,4 +1,4 @@
-package pasien
+package post
 
 import (
 	"fmt"

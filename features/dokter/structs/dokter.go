@@ -3,7 +3,7 @@ package dokter
 const MAXDOKTER int = 100
 
 type Dokter struct {
-	Nama, Spesialis, Username, Password string
+	ID, Nama, Spesialis, Username, Password string
 }
 
 type TabDokter struct {
