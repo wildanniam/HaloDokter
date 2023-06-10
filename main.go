@@ -12,17 +12,21 @@ import (
 
 	// Feature Post
 	doctorStruct "projek/features/dokter/structs"
+	postFunc "projek/features/post/functions"
 	postStruct "projek/features/post/structs"
 
 	// Feature Pasien
 	doctor "projek/features/dokter"
 	pasien "projek/features/pasien"
 	pasienStruct "projek/features/pasien/structs"
+
+	//Umum
+	menuUmum "projek/features/umum"
 )
 
 func main() {
 	var arrPost postStruct.TabPost
-	var arrPasien pasienStruct.TabPasien
+	var arrPatient pasienStruct.TabPasien
 	var arrDoctor doctorStruct.TabDokter
 
 	var input int
@@ -37,14 +41,25 @@ func main() {
 		if input == 1 {
 			// Reset console
 			common.ResetConsole()
-			pasien.Main(&arrPasien, &arrPost, &arrDoctor)
+			pasien.Main(&arrPatient, &arrPost, &arrDoctor)
 		} else if input == 2 {
 			// Dokter
 			common.ResetConsole()
-			doctor.Main(&arrDoctor, &arrPost, &arrPasien)
+			doctor.Main(&arrDoctor, &arrPost, &arrPatient)
 		} else if input == 3 {
 			// Forum Konsultasi
-			fmt.Println("Menu Konsultasi")
+			common.ResetConsole()
+			menuUmum.ShowUmumMenu()
+			fmt.Print("Pilih Menu : ")
+			fmt.Scan(&input)
+			for input != 2 {
+
+				common.ResetConsole()
+				postFunc.ShowPost(&arrPost, &arrDoctor, &arrPatient)
+				menuUmum.ShowUmumMenu()
+				fmt.Print("Pilih Menu : ")
+				fmt.Scan(&input)
+			}
 		} else {
 			fmt.Println("Menu Salah, coba lagi!")
 		}

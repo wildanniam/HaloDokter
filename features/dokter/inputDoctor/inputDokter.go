@@ -5,7 +5,7 @@ import (
 	dokterStruct "projek/features/dokter/structs"
 )
 
-func InputDokter(arrDokter *dokterStruct.TabDokter) {
+func InputDoctor(arrDokter *dokterStruct.TabDokter) {
 	arrDokter.ArrDokter[0].Nama = "Indra Mahesa"
 	arrDokter.ArrDokter[0].ID = common.GenerateRandomString(3)
 	arrDokter.ArrDokter[0].Username = "indramahesa"
@@ -13,7 +13,7 @@ func InputDokter(arrDokter *dokterStruct.TabDokter) {
 	arrDokter.ArrDokter[0].Spesialis = "Dokter Umum"
 	arrDokter.N++
 
-	arrDokter.ArrDokter[1].Nama = "Zahra Amiera Putri Sileandra"
+	arrDokter.ArrDokter[1].Nama = "Zahra Amiera Putri"
 	arrDokter.ArrDokter[1].ID = common.GenerateRandomString(3)
 	arrDokter.ArrDokter[1].Username = "zahra"
 	arrDokter.ArrDokter[1].Password = "zahra"

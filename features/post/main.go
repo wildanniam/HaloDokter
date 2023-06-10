@@ -3,8 +3,9 @@ package post
 import (
 	"fmt"
 	"projek/common"
+	doctorMenu "projek/features/dokter/menu"
 	doctorStruct "projek/features/dokter/structs"
-	pasienMenu "projek/features/pasien/menu"
+	patienMenu "projek/features/pasien/menu"
 	patientStruct "projek/features/pasien/structs"
 	postFunc "projek/features/post/functions"
 	postStruct "projek/features/post/structs"
@@ -17,21 +18,44 @@ func Main(
 	UserType string,
 	UserIndex int,
 ) {
-	var input int
-	pasienMenu.ShowHomePasienMenu(arrPost)
-	fmt.Print("Pilih Menu : ")
-	fmt.Scan(&input)
-	for input != 3 {
-		postFunc.ShowPost(arrPost, arrDoctor, arrPatient)
-		if input == 1 {
-			postFunc.PoChat(arrPost)
-		} else if input == 2 {
-			postFunc.RepPost(arrPost, UserType, UserIndex)
-		} else if input == 3 {
-		}
-		common.ResetConsole()
-		pasienMenu.ShowHomePasienMenu(arrPost)
+	if UserType == "pasien" {
+		var input int
+		patienMenu.ShowHomePasienMenu()
 		fmt.Print("Pilih Menu : ")
 		fmt.Scan(&input)
+		for input != 4 {
+			postFunc.ShowPost(arrPost, arrDoctor, arrPatient)
+			if input == 1 {
+				postFunc.PoChat(arrPost, "pasien")
+				common.ResetConsole()
+			} else if input == 2 {
+				postFunc.RepPost(arrPost, UserType, UserIndex)
+				common.ResetConsole()
+			} else if input == 3 {
+				postFunc.ShowPost(arrPost, arrDoctor, arrPatient)
+			}
+			patienMenu.ShowHomePasienMenu()
+			fmt.Print("Pilih Menu : ")
+			fmt.Scan(&input)
+		}
+	} else if UserType == "dokter" {
+		var input int
+		doctorMenu.ShowHomeDokterMenu()
+		fmt.Print("Pilih Menu : ")
+		fmt.Scan(&input)
+		//Kalau input == 3 akan keluar
+		for input != 4 {
+			postFunc.ShowPost(arrPost, arrDoctor, arrPatient)
+			if input == 1 {
+				postFunc.PoChat(arrPost, "dokter")
+			} else if input == 2 {
+				postFunc.RepPost(arrPost, UserType, UserIndex)
+			}
+			common.ResetConsole()
+			doctorMenu.ShowHomeDokterMenu()
+			fmt.Print("Pilih Menu : ")
+			fmt.Scan(&input)
+		}
 	}
+
 }

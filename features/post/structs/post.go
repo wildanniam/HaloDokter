@@ -1,9 +1,5 @@
 package post
 
-import (
-	pasienStruct "projek/features/pasien/structs"
-)
-
 const NMAX int = 20
 
 type Post struct {
@@ -11,7 +7,8 @@ type Post struct {
 	Nreply              int
 	TxtAddPost, TagPost string
 	ID                  string
-	User                pasienStruct.Pasien
+	User                string
+	UserIndex           int
 }
 
 type TabPost struct {

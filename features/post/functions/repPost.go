@@ -12,7 +12,6 @@ func RepPost(tPost *postStruct.TabPost, UserType string, UserIndex int) {
 	var IDPost string
 	var idx int
 	var inputUser string
-	var response int
 
 	fmt.Println("Pilih ID postingan yang ingin dibalas: ")
 	fmt.Scan(&IDPost)
@@ -39,22 +38,12 @@ func RepPost(tPost *postStruct.TabPost, UserType string, UserIndex int) {
 	if idx != -1 {
 		fmt.Println("Balasan anda: ")
 		common.InputMultipleString(&inputUser)
-		fmt.Println("[1] Kirim          [2]Batal")
-		fmt.Print("Action : ")
-		fmt.Scan(&response)
-		for response == 1 {
-			if tPost.ArrPost[idx].Nreply < postStruct.NMAX {
-				tPost.ArrPost[idx].ArrReply[tPost.ArrPost[idx].Nreply].Message = inputUser
-				tPost.ArrPost[idx].ArrReply[tPost.ArrPost[idx].Nreply].User = UserType
-				tPost.ArrPost[idx].ArrReply[tPost.ArrPost[idx].Nreply].UserIndex = UserIndex
-				tPost.ArrPost[idx].Nreply++
-				fmt.Println("Balasan anda telah diposting!")
-			}
-			fmt.Println("Balasan anda: ")
-			common.InputMultipleString(&inputUser)
-			fmt.Println("[1] Balas          [2]Batal")
-			fmt.Print("Action : ")
-			fmt.Scan(&response)
+		if inputUser != " " && tPost.ArrPost[idx].Nreply < postStruct.NMAX {
+			tPost.ArrPost[idx].ArrReply[tPost.ArrPost[idx].Nreply].Message = inputUser
+			tPost.ArrPost[idx].ArrReply[tPost.ArrPost[idx].Nreply].User = UserType
+			tPost.ArrPost[idx].ArrReply[tPost.ArrPost[idx].Nreply].UserIndex = UserIndex
+			tPost.ArrPost[idx].Nreply++
+			fmt.Println("Balasan anda telah diposting!")
 		}
 	} else {
 		fmt.Print("postingan tidak ditemukan!")
