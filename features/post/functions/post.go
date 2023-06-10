@@ -13,8 +13,8 @@ func PoChat(tPost *postStruct.TabPost) {
 		common.InputMultipleString(&tPost.ArrPost[tPost.N].TxtAddPost)
 		fmt.Print("Tag: ")
 		fmt.Scan(&tPost.ArrPost[tPost.N].TagPost)
-		tPost.ArrPost[tPost.N].ID = common.GenerateRandomString(5)
+		tPost.ArrPost[tPost.N].ID = common.GenerateRandomString(3)
 		tPost.N++
-		fmt.Print("Pertanyaan anda telah diposting!")
+		fmt.Println("Pertanyaan anda telah diposting!")
 	}
 }

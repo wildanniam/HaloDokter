@@ -5,6 +5,7 @@ import (
 )
 
 func SearchPost(tpost postStruct.TabPost, x string) int {
+	//Mencari postingan berdasarkan ID post dan return indext dari post
 	var i int
 	var found int = -1
 

@@ -11,9 +11,11 @@ import (
 	homeMenu "projek/features/home/menu"
 
 	// Feature Post
+	doctorStruct "projek/features/dokter/structs"
 	postStruct "projek/features/post/structs"
 
 	// Feature Pasien
+	doctor "projek/features/dokter"
 	pasien "projek/features/pasien"
 	pasienStruct "projek/features/pasien/structs"
 )
@@ -21,33 +23,34 @@ import (
 func main() {
 	var arrPost postStruct.TabPost
 	var arrPasien pasienStruct.TabPasien
+	var arrDoctor doctorStruct.TabDokter
 
 	var input int
 	homeMenu.ShowHomeMenu()
+	// Terima inputan dari user
+	fmt.Print("Pilih Menu : ")
+	fmt.Scan(&input)
 
 	for input != 4 {
-
-		// Terima inputan dari user
-		fmt.Print("Pilih Menu : ")
-		fmt.Scan(&input)
-
-		// Reset console
-		common.ResetConsole()
-
 		// Cek apakah menu tersedia
+		// Pasien
 		if input == 1 {
-			// Pasien
-			pasien.Main(&arrPasien, &arrPost)
-			homeMenu.ShowHomeMenu()
+			// Reset console
+			common.ResetConsole()
+			pasien.Main(&arrPasien, &arrPost, &arrDoctor)
 		} else if input == 2 {
 			// Dokter
-			fmt.Println("Menu Dokter")
+			common.ResetConsole()
+			doctor.Main(&arrDoctor, &arrPost, &arrPasien)
 		} else if input == 3 {
 			// Forum Konsultasi
 			fmt.Println("Menu Konsultasi")
 		} else {
 			fmt.Println("Menu Salah, coba lagi!")
 		}
+		homeMenu.ShowHomeMenu()
+		fmt.Print("Pilih Menu : ")
+		fmt.Scan(&input)
 	}
 
 	// Exit Aplikasi

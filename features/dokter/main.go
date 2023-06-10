@@ -2,39 +2,55 @@ package dokter
 
 import (
 	"fmt"
-	"projek/common"
 
+	common "projek/common"
+	// struct dokter
 	dokterFunc "projek/features/dokter/functions"
 	dokterMenu "projek/features/dokter/menu"
 	dokterStruct "projek/features/dokter/structs"
+
+	// Struct patient
+	patientStruct "projek/features/pasien/structs"
+
+	//struct post
+	post "projek/features/post"
 	postStruct "projek/features/post/structs"
 )
 
-func Main(arrDokter *dokterStruct.TabDokter, arrPost *postStruct.TabPost) {
+func Main(
+	arrDokter *dokterStruct.TabDokter,
+	arrPost *postStruct.TabPost,
+	arrPatient *patientStruct.TabPasien,
+) {
 	var input int
-	dokterMenu.ShowAuthDokterMenu()
 
+	dokterMenu.ShowAuthDokterMenu()
+	fmt.Print("Pilih Menu : ")
 	fmt.Scan(&input)
 
-	for input != 3 {
+	for input != 2 {
 		if input == 1 {
-			common.ResetConsole()
-			dokterFunc.RegisDokter(arrDokter)
-			dokterMenu.ShowAuthDokterMenu()
-		} else if input == 2 {
-			/*dokterFunc.LoginDokter(arrDokter) {
-			common.ResetConsole()
-			dokterMenu.ShowHomeDokterMenu()
-			fmt.Scan(&input)
-			for input != 1 {
-				dokterFunc.ShowPost(arrPost)
-				dokterFunc.RepChat(arrPost) // reply chat masih mau diubah lokasinya kayaknya. rencana mau dibuat di luar aja jadi "projek/features/post" tapi masih butuh briefing dulu setuju atau gak.
-				}
-			}*/
+			doctorIndex := dokterFunc.LoginDokter(arrDokter)
+			if doctorIndex != -1 {
+				common.ResetConsole()
+
+				post.Main(arrPost, arrDokter, arrPatient, "dokter", doctorIndex)
+			} else {
+				common.ResetConsole()
+
+				fmt.Println("=======================================================================================")
+				fmt.Println("                  Mohon inputkan username dan password dengan benar!                             ")
+				fmt.Println("=======================================================================================")
+				fmt.Println()
+
+				common.ShowEndAction()
+			}
 		} else {
-			fmt.Println("Input tidak valid !")
+			fmt.Println("Menu Salah, coba lagi!")
 		}
+		dokterMenu.ShowHomeDokterMenu()
+		fmt.Print("Pilih Menu : ")
 		fmt.Scan(&input)
 	}
-	Main(arrDokter, arrPost)
+	common.ResetConsole()
 }

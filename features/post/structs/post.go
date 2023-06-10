@@ -7,7 +7,8 @@ import (
 const NMAX int = 20
 
 type Post struct {
-	ArrReply            [NMAX]string
+	ArrReply            [NMAX]Reply
+	Nreply              int
 	TxtAddPost, TagPost string
 	ID                  string
 	User                pasienStruct.Pasien

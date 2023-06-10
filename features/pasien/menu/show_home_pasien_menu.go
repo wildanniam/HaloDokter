@@ -1,8 +1,12 @@
 package pasien
 
-import "fmt"
+import (
+	"fmt"
+	postStruct "projek/features/post/structs"
+)
 
-func ShowHomePasienMenu() {
+func ShowHomePasienMenu(arrPost *postStruct.TabPost) {
+
 	fmt.Println("====================================================")
 	fmt.Println("=                 Halaman Konsultasi               =")
 	fmt.Println("=    Silahkan berkonsultasi terkait keluhan anda   =")

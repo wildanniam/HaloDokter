@@ -8,8 +8,7 @@ func ShowAuthDokterMenu() {
 	fmt.Println("=    Anda diwajibkan login atau registrasi   =")
 	fmt.Println("==============================================")
 	fmt.Println("=                   Menu                     =")
-	fmt.Println(" 1. Registrasi                                ")
-	fmt.Println(" 2. Login                                     ")
-	fmt.Println(" 3. Kembali ke Halaman Utama                  ")
+	fmt.Println(" 1. Login                                     ")
+	fmt.Println(" 2. Kembali ke Halaman Utama                  ")
 	fmt.Println("==============================================")
 }

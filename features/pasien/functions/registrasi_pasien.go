@@ -19,7 +19,7 @@ func RegistrasiPasien(arrPasien *pasienStruct.TabPasien) {
 	common.ResetConsole()
 
 	fmt.Println("=======================================================================================")
-	fmt.Println("                           Berhasil Registrasi Sebagai Pasien                             ")
+	fmt.Println("                           Berhasil Registrasi Sebagai Pasien                          ")
 	fmt.Println("=======================================================================================")
 	fmt.Println()
 
