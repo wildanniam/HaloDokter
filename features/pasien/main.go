@@ -34,12 +34,12 @@ func Main(arrPasien *pasienStruct.TabPasien, arrPost *postStruct.TabPost, arrDoc
 			common.ResetConsole()
 		} else if input == 2 {
 			// Login
-			patientIndex := pasienFunc.LoginPasien(arrPasien)
-			if patientIndex != -1 {
+			PatientIndex := pasienFunc.LoginPasien(arrPasien)
+			if PatientIndex != -1 {
 				// Jika login berhasil
 				common.ResetConsole()
 
-				post.Main(arrPost, arrDoctor, arrPasien, "pasien", patientIndex)
+				post.Main(arrPost, arrDoctor, arrPasien, "pasien", PatientIndex)
 			} else {
 				// Jika login gagal
 				common.ResetConsole()

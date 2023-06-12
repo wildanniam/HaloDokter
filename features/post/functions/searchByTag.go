@@ -2,26 +2,45 @@ package post
 
 import (
 	"fmt"
-	structTag "projek/features/post/structs"
+	common "projek/common"
+	doctorStruct "projek/features/dokter/structs"
+	patientStruct "projek/features/pasien/structs"
+	postStruct "projek/features/post/structs"
 )
 
-func SearchByTag(tag *structTag.TabPost, X string) int {
-	var found int = -1
+func SearchByTag(arrPost *postStruct.TabPost, arrPatient *patientStruct.TabPasien, arrDoctor *doctorStruct.TabDokter, X string) {
+	var tabFound postStruct.TabPost
 	var j int = 0
-	for j < tag.N && found == -1 {
-		if tag.ArrPost[j].TagPost == X {
-			found = j
+	var i int
+	fmt.Println()
+	for j < arrPost.N {
+		if arrPost.ArrPost[j].TagPost == X {
+			//Show Postingan
+			tabFound.ArrPost[i] = arrPost.ArrPost[j]
+			fmt.Println("ID: ", tabFound.ArrPost[i].ID)
+			fmt.Println(tabFound.ArrPost[i].TxtAddPost)
+			fmt.Println("Tag : ", tabFound.ArrPost[i].TagPost)
+			// Show Balasan
+			for k := 0; k < tabFound.ArrPost[i].Nreply; k++ {
+				if arrPost.ArrPost[i].ArrReply[k].User == "dokter" {
+
+					doctor := arrDoctor.ArrDokter[arrPost.ArrPost[i].ArrReply[k].UserIndex]
+					fmt.Println("==== Balasan =====")
+					fmt.Println("dr.", doctor.Nama)
+					fmt.Println("Spesialis", doctor.Spesialis)
+
+				} else if arrPost.ArrPost[i].ArrReply[k].User == "pasien" {
+
+					patient := arrPatient.ArrPasien[arrPost.ArrPost[i].ArrReply[k].UserIndex]
+					fmt.Println("==== Balasan =====")
+					fmt.Println(patient.Nama)
+
+				}
+				fmt.Println("Balasan : ", arrPost.ArrPost[i].ArrReply[k].Message)
+			}
+			i++
 		}
 		j++
 	}
-	return found
-}
-
-func ShowResultTag(tag *structTag.TabPost, Xin string) {
-	// var found int = SearchByTag(tag, Xin)
-	fmt.Scan(&Xin)
-	// for i < tag.N {
-	// 	if found != -1
-	// }
-
+	common.ResetConsole()
 }

@@ -5,6 +5,7 @@ import (
 	"projek/common"
 	doctorMenu "projek/features/dokter/menu"
 	doctorStruct "projek/features/dokter/structs"
+	patientFunc "projek/features/pasien/functions"
 	patienMenu "projek/features/pasien/menu"
 	patientStruct "projek/features/pasien/structs"
 	postFunc "projek/features/post/functions"
@@ -19,11 +20,12 @@ func Main(
 	UserIndex int,
 ) {
 	if UserType == "pasien" {
+		var searchTag string
 		var input int
 		patienMenu.ShowHomePasienMenu()
 		fmt.Print("Pilih Menu : ")
 		fmt.Scan(&input)
-		for input != 4 {
+		for input != 7 {
 			postFunc.ShowPost(arrPost, arrDoctor, arrPatient)
 			if input == 1 {
 				postFunc.PoChat(arrPost, "pasien")
@@ -33,6 +35,17 @@ func Main(
 				common.ResetConsole()
 			} else if input == 3 {
 				postFunc.ShowPost(arrPost, arrDoctor, arrPatient)
+			} else if input == 4 {
+				fmt.Print("Masukkan tag yang ingin anda cari: ")
+				fmt.Scan(&searchTag)
+				postFunc.SearchByTag(arrPost, arrPatient, arrDoctor, searchTag)
+			} else if input == 5 {
+				patienMenu.ShowDeleteAccount()
+				patientFunc.EditAcc(arrPatient)
+			} else if input == 6 {
+				patienMenu.ShowDeleteAccount()
+				patientFunc.DeleteAccount(arrPatient)
+
 			}
 			patienMenu.ShowHomePasienMenu()
 			fmt.Print("Pilih Menu : ")

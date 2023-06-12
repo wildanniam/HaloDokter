@@ -53,9 +53,12 @@ func main() {
 			fmt.Print("Pilih Menu : ")
 			fmt.Scan(&input)
 			for input != 2 {
-
-				common.ResetConsole()
-				postFunc.ShowPost(&arrPost, &arrDoctor, &arrPatient)
+				if input == 1 {
+					common.ResetConsole()
+					postFunc.ShowPost(&arrPost, &arrDoctor, &arrPatient)
+				} else {
+					fmt.Println("Menu salah, coba lagi!")
+				}
 				menuUmum.ShowUmumMenu()
 				fmt.Print("Pilih Menu : ")
 				fmt.Scan(&input)

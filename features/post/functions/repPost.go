@@ -9,31 +9,13 @@ import (
 
 func RepPost(tPost *postStruct.TabPost, UserType string, UserIndex int) {
 	//Pengguna menginputkan balasan pada postingan
-	var IDPost string
+	var IDPost int
 	var idx int
 	var inputUser string
 
 	fmt.Println("Pilih ID postingan yang ingin dibalas: ")
 	fmt.Scan(&IDPost)
 	idx = SearchPost(*tPost, IDPost)
-
-	/*if idx != -1 {
-		fmt.Println("Balasan anda: ")
-		common.InputMultipleString(&inputUser)
-		for tPost.ArrPost[idx].Nreply < len(tPost.ArrPost[idx].ArrReply) && inputUser != "STOP" {
-			tPost.ArrPost[idx].ArrReply[tPost.ArrPost[idx].Nreply] = inputUser
-			tPost.ArrPost[idx].Nreply++
-			fmt.Println("Balasan anda telah diposting!")
-
-			fmt.Println("Balasan anda: ")
-			common.InputMultipleString(&inputUser)
-		}
-	} else {
-		fmt.Print("postingan tidak ditemukan!")
-	}
-	// for j := 0; j < tPost.ArrPost[idx].Nreply; j++ {
-	// 	fmt.Println("Result : ", tPost.ArrPost[idx].ArrReply[j])
-	// }*/
 
 	if idx != -1 {
 		fmt.Println("Balasan anda: ")

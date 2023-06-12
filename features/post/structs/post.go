@@ -6,7 +6,7 @@ type Post struct {
 	ArrReply            [NMAX]Reply
 	Nreply              int
 	TxtAddPost, TagPost string
-	ID                  string
+	ID                  int
 	User                string
 	UserIndex           int
 }
@@ -14,4 +14,9 @@ type Post struct {
 type TabPost struct {
 	ArrPost [NMAX]Post
 	N       int
+}
+
+type Tag struct {
+	TxtTag string
+	N      int
 }

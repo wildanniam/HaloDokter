@@ -8,7 +8,7 @@ func ShowUmumMenu() {
 	fmt.Println("= Silahkan Login terlebih dahulu untuk mengakses semua fitur =")
 	fmt.Println("==============================================================")
 	fmt.Println("=                        Menu                                =")
-	fmt.Println(" 1. show menu                                                 ")
+	fmt.Println(" 1. Lanjut buka forum                                         ")
 	fmt.Println(" 2. Kembali                                                   ")
 	fmt.Println("==============================================================")
 }

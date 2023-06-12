@@ -14,7 +14,7 @@ func PoChat(tPost *postStruct.TabPost, UserType string) {
 			common.InputMultipleString(&tPost.ArrPost[tPost.N].TxtAddPost)
 			fmt.Print("Tag: ")
 			fmt.Scan(&tPost.ArrPost[tPost.N].TagPost)
-			tPost.ArrPost[tPost.N].ID = common.GenerateRandomString(3)
+			tPost.ArrPost[tPost.N].ID = tPost.N
 			tPost.N++
 			fmt.Println("Pertanyaan anda telah diposting!")
 		} else {
@@ -22,7 +22,7 @@ func PoChat(tPost *postStruct.TabPost, UserType string) {
 			common.InputMultipleString(&tPost.ArrPost[tPost.N].TxtAddPost)
 			fmt.Print("Tag: ")
 			fmt.Scan(&tPost.ArrPost[tPost.N].TagPost)
-			tPost.ArrPost[tPost.N].ID = common.GenerateRandomString(3)
+			tPost.ArrPost[tPost.N].ID = tPost.N
 			tPost.N++
 			fmt.Println("Informasi anda telah diposting!")
 		}

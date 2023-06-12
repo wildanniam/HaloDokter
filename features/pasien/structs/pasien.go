@@ -3,7 +3,8 @@ package pasien
 const MAXUSER int = 100
 
 type Pasien struct {
-	ID, Nama, Username, Password string
+	Nama, Username, Password string
+	ID                       int
 }
 
 type TabPasien struct {

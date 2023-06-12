@@ -13,7 +13,7 @@ func RegistrasiPasien(arrPasien *pasienStruct.TabPasien) {
 	common.InputMultipleString(&arrPasien.ArrPasien[arrPasien.N].Username)
 	fmt.Print("Masukkan password : ")
 	common.InputMultipleString(&arrPasien.ArrPasien[arrPasien.N].Password)
-
+	arrPasien.ArrPasien[arrPasien.N].ID = arrPasien.N
 	arrPasien.N++
 
 	common.ResetConsole()

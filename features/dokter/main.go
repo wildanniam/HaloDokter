@@ -9,12 +9,13 @@ import (
 	inputDoctor "projek/features/dokter/inputDoctor"
 	dokterMenu "projek/features/dokter/menu"
 	dokterStruct "projek/features/dokter/structs"
+	"projek/features/post"
 
 	// Struct patient
 	patientStruct "projek/features/pasien/structs"
 
 	//struct post
-	post "projek/features/post"
+	//post "projek/features/post"
 	postStruct "projek/features/post/structs"
 )
 
