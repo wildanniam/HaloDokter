@@ -12,7 +12,8 @@ func SearchByTag(arrPost *postStruct.TabPost, arrPatient *patientStruct.TabPasie
 	var tabFound postStruct.TabPost
 	var j int = 0
 	var i int
-	fmt.Println()
+	common.ResetConsole()
+	// fmt.Println()
 	for j < arrPost.N {
 		if arrPost.ArrPost[j].TagPost == X {
 			//Show Postingan
@@ -42,5 +43,4 @@ func SearchByTag(arrPost *postStruct.TabPost, arrPatient *patientStruct.TabPasie
 		}
 		j++
 	}
-	common.ResetConsole()
 }

@@ -2,7 +2,7 @@ package post
 
 import (
 	"fmt"
-	"projek/common"
+	// common "projek/common"
 	doctorStruct "projek/features/dokter/structs"
 	patientStruct "projek/features/pasien/structs"
 	postStruct "projek/features/post/structs"
@@ -31,12 +31,13 @@ func ShowPost(arrPost *postStruct.TabPost, arrDoctor *doctorStruct.TabDokter, ar
 
 				patient := arrPatient.ArrPasien[arrPost.ArrPost[i].ArrReply[j].UserIndex]
 				fmt.Println("==== Balasan =====")
-				fmt.Println(patient.Nama)
+				fmt.Println("nama :", patient.Nama)
 
 			}
 			fmt.Println("Balasan : ", arrPost.ArrPost[i].ArrReply[j].Message)
 		}
-		common.ResetConsole()
+		fmt.Println()
+		// common.ResetConsole()
 	}
 
 }

@@ -34,6 +34,7 @@ func Main(
 				postFunc.RepPost(arrPost, UserType, UserIndex)
 				common.ResetConsole()
 			} else if input == 3 {
+				common.ResetConsole()
 				postFunc.ShowPost(arrPost, arrDoctor, arrPatient)
 			} else if input == 4 {
 				fmt.Print("Masukkan tag yang ingin anda cari: ")
